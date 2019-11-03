@@ -3,4 +3,4 @@
 FEITO :
 
 - conexao com o bd
-- criar o bd ( ele ta na pasta bd-import , só pegar la)
+- criar o bd ( ele ta na pasta bd-export , só pegar la)
