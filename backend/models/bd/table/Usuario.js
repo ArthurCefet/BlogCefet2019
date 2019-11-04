@@ -3,7 +3,7 @@
 const bd= require('../Bd')
 
 
-//criando a tabela
+//Montando a tabela
 const Usuario = bd.conexao.define('Usuario',{   
     NomeDeLogin: {
         type: bd.Sequelize.STRING,
@@ -19,6 +19,6 @@ const Usuario = bd.conexao.define('Usuario',{
     },
 })
 
-Usuario.sync({force : true})
+ //Usuario.sync({force : true})
 
 module.exports = Usuario
