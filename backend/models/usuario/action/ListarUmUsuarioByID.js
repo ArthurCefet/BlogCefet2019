@@ -1,6 +1,6 @@
 const Usuario = require('../../bd/table/Usuario')
 
-    export default function ListarUmUsuarioByID(user_id){ 
+    const ListarUmUsuarioByID = function(user_id){ 
         Usuario.findAll({
             where: {
                 id: user_id
