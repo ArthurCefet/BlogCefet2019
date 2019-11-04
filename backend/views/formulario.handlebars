@@ -1,7 +1,12 @@
-<script src=""></script>
-<form method="POST">
-    Login:<input type="text" id="nome"><br>
-    E-mail:<input type="text" id="email"><br>
-    Senha:<input type="password" id="senha"><br>
-    <input type="submit" value="Cadastrar" onclick="">
-</form>
+<h1>Cadastro de Usuario</h1>
+<hr>
+<a href="/"><button>Listagem</button></a>
+<br><br>
+<div>
+    <form action="/add" method="post" >
+        Login:<input type="text" name="NomeDeLogin" id="nome"><br><br>
+        E-mail:<input type="text" name="Email" id="email"><br><br>
+        Senha:<input type="password" name="Senha" id="senha"><br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
