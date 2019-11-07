@@ -1,0 +1,13 @@
+<h1>Atualizar usuário</h1>
+<hr>
+<a href="/"><button>Listagem</button></a>
+<br><br>
+<div>
+    <form action="/atualizar" method="post">
+        <input type="hidden" name="id" id="id" value="{{usuario.id}}">
+        Login:<input type="text" name="NomeDeLogin" id="nome" value="{{usuario.NomeDeLogin}}"><br><br>
+        E-mail:<input type="text" name="Email" id="email" value="{{usuario.Email}}"><br><br>
+        Senha:<input type="password" name="Senha" id="senha" value="{{usuario.Senha}}"><br><br>
+        <button type="submit">Atualizar</button>
+    </form>
+</div>
