@@ -1,5 +1,5 @@
 
-//vamos importar em uma variavel, o bd.js criado
+//Importaremos em uma variavel, o bd.js criado
 const bd= require('../Bd')
 
 
