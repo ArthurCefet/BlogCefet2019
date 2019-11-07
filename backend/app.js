@@ -50,7 +50,7 @@ const bodyParser = require('body-parser');
     })
 
     exp.post("/atualizar",(req,res) =>{
-        Usuario.findOne({where:{id:req.body.id}}).then((usuario)=>{
+        Usuario.findOne({where:{id: req.body.id}}).then((usuario)=>{
             usuario.NomeDeLogin = req.body.NomeDeLogin
             usuario.Email = req.body.Email
             usuario.Senha = req.body.Senha
@@ -61,7 +61,7 @@ const bodyParser = require('body-parser');
                 res.send("Falha ao atualizar."+e)
             })
 
-        }).catch((erro)=>{
+        }).catch((e)=>{
             res.send("Falha ao atualizar."+e)
         })
     })
