@@ -9,8 +9,9 @@ const bodyParser = require('body-parser');
     //main.handlebars é o layout padrão, o corpo do html é feito nele
     exp.engine('handlebars',handlebars({defaultLayout: 'main'}))
     exp.set('view engine','handlebars')
-    //configurando bodyParse
-    exp.use(bodyParser.urlencoded({extended:false}))
+
+//bodyparser é usado para converter dados de uma requisição
+    //nesse caso é convertido os dados da requisicao para json
     exp.use(bodyParser.json())
 
   //rotas 
