@@ -1,7 +1,6 @@
 <h1>Listagem de Usuarios</h1>
 <hr>
 <a href="/Cadastro"><button>Cadastrar</button></a>
-<a href="#"><button>Deletar</button></a>
 <a href="#"><button>Update</button></a>
 {{#each bd_usuarios}}
     <div>
@@ -10,6 +9,7 @@
             <li>Nome : {{NomeDeLogin}}</li>
             <li>Email : {{Email}}</li>
             <li>Senha : {{Senha}}</li>
+            <a href="/remover/{{id}}"><button>Deletar Usuario</button></a>
         </ul>
     </div>
 {{/each}}
