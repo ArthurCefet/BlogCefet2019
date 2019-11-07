@@ -7,10 +7,13 @@ const bodyParser = require('body-parser');
 
 //vamos setar no express o nosso handlebars
     //main.handlebars é o layout padrão, o corpo do html é feito nele
+    //handlebars é um processador de template que torna a pagina dinamica
+    //vamos setar no express o nosso handlebars
     exp.engine('handlebars',handlebars({defaultLayout: 'main'}))
     exp.set('view engine','handlebars')
-
-//bodyparser é usado para converter dados de uma requisição
+    //configurando bodyParse
+    exp.use(bodyParser.urlencoded({extended:false}))
+    //bodyparser é usado para converter dados de uma requisição
     //nesse caso é convertido os dados da requisicao para json
     exp.use(bodyParser.json())
 
@@ -42,7 +45,7 @@ const bodyParser = require('body-parser');
     })
 
     exp.get("/atualizar/:id",(req,res)=>{
-        Usuario.findOne({where:{id: req.params.id}}).then((usuario) => {
+        Usuario.findOne({where:{'id': req.params.id}}).then((usuario) => {
             res.render('atualizar',{usuario:usuario})
         }).catch((e)=>{
             res.send("Falha ao atualizar."+e)
@@ -50,7 +53,7 @@ const bodyParser = require('body-parser');
     })
 
     exp.post("/atualizar",(req,res) =>{
-        Usuario.findOne({where:{id: req.body.id}}).then((usuario)=>{
+        Usuario.findOne({where: {'id':req.body.id}}).then((usuario)=>{
             usuario.NomeDeLogin = req.body.NomeDeLogin
             usuario.Email = req.body.Email
             usuario.Senha = req.body.Senha
@@ -63,6 +66,17 @@ const bodyParser = require('body-parser');
 
         }).catch((e)=>{
             res.send("Falha ao atualizar."+e)
+        })
+    })
+
+    //vamos criar uma rota para deletar determinado usuario pelo id
+        // O valor do id é recebido via get pela URL , repare que diferente do criar usuario o parametro não é pego pelo formulario html, nessa caso o vlaor é pego na url (req.params.id)
+    exp.get("/remover/:id",(req,res)=>{
+        Usuario.destroy({ where: {'id':req.params.id}}).then(()=>{
+            res.redirect("/")
+            console.log("Sucesso ao remover o usuario de id : "+req.params.id)
+        }).catch((e)=>{
+            console.log("ERROR AO DELETAR . "+ e)
         })
     })
 
